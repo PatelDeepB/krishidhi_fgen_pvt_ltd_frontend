@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+  CHANGELOG:
+  2026-07-08: Added a suite of premium spatial animations:
+  1. Interpolated mouse-trailing cursor aura (<div class="custom-cursor-glow">).
+  2. Parallax perspective grid shifts linked to mouse movements.
+  3. Digital float data-particles floating inside the Node editor canvas.
+  4. Radar-sweep scanning laser bar executing on pipeline launch.
+  5. Scroll-triggered IntersectionObserver reveal animations on sections/cards.
+  6. Dynamic count-up animations on stats telemetry when scrolled into view.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishidhi Fgen | Spatial Node-Based Agronomy Console</title>
+  <meta name="description" content="State-of-the-art cognitive agriculture systems. Connect sensor networks and RAG databases using visual flow graphs.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor Glow Aura -->
+  <div class="custom-cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Background telemetry overlays -->
+  <div class="ambient-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow bg-glow-3" aria-hidden="true"></div>
+  <div class="fine-grid-overlay" id="grid-overlay" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo" aria-label="Krishidhi Fgen Home">
+        <svg class="logo-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2C12 2 16 7 16 12C16 17 12 22 12 22" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2C12 2 8 7 8 12C8 17 12 22 12 22" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3" fill="var(--accent-primary)"/>
+        </svg>
+        <span>KRISHIDHI <span class="fgen-text">FGEN</span></span>
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <a href="#sandbox" class="nav-link">Flow Sandbox</a>
+        <a href="#spec" class="nav-link">Platform Pillars</a>
+        <a href="#about" class="nav-link">Core System</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch UI visual modes">
+          <span class="toggle-dot"></span>
+        </button>
+        <a href="#sandbox" class="btn btn-primary">Launch Sandbox</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-layout-minimal">
+        <div class="platform-version reveal-delay-1">
+          <span class="pulse-indicator"></span>
+          <span>NODE EDITOR v3.5 - ACTIVE MOCK</span>
+        </div>
+        <h1 class="hero-reveal-title">
+          <span class="reveal-line"><span>Autonomous Agronomy.</span></span>
+          <span class="reveal-line"><span class="gradient-headline">Synthesized by AI.</span></span>
+        </h1>
+        <p class="hero-subtext reveal-delay-2">
+          We design the visual flow grids and cognitive architectures that power Krishi Vigyan AI. Map sensors, trigger RAG databases, and coordinate verified farmer-to-consumer ledgers on a unified canvas.
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Node Editor Section -->
+    <section class="sandbox-section" id="sandbox">
+      <div class="wrapper">
+        <div class="center-header reveal-fade">
+          <span class="sup-title">Interactive Workspace</span>
+          <h2>Cognitive Flow Orchestrator</h2>
+          <p>Adjust visual parameters and node connectors, then hit "Run Diagnostics Pipeline" to compile real-time diagnostic outputs.</p>
+        </div>
+
+        <div class="node-editor-workspace reveal-fade">
+          
+          <!-- Workspace Sidebar / Property Panel -->
+          <div class="editor-sidebar tilt-card">
+            <div class="sidebar-header">
+              <h3>Flow Properties</h3>
+              <span class="status-badge" id="execution-status">Ready</span>
+            </div>
+            
+            <div class="sidebar-body">
+              <div class="selected-node-info" id="node-info-panel">
+                <p class="muted-text">Select a node on the canvas to edit its variables and review its connection ports.</p>
+              </div>
+              
+              <div class="global-actions">
+                <button class="btn btn-primary btn-full" id="run-pipeline-btn">Run Diagnostics Pipeline</button>
+              </div>
+            </div>
+
+            <!-- Telemetry Metrics -->
+            <div class="sidebar-metrics">
+              <div class="metric-row">
+                <span>RAG Confidence</span>
+                <span class="value-highlight" id="metrics-confidence">98.4%</span>
+              </div>
+              <div class="metric-row">
+                <span>Calculated Radius</span>
+                <span class="value-highlight" id="metrics-radius">15 km</span>
+              </div>
+              <div class="metric-row">
+                <span>Shop Matches</span>
+                <span class="value-highlight" id="metrics-shops">4 Stores</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flow Canvas -->
+          <div class="editor-canvas-container">
+            <div class="canvas-scroll-wrapper" style="position: relative;">
+              <!-- Inline Canvas Loading Overlay (Cyber HUD Interface) -->
+              <div class="canvas-loader-overlay" id="canvas-loader" style="display: none;">
+                <div class="hud-loader-wrapper">
+                  <div class="hud-target-cross"></div>
+                  <div class="hud-ring-outer"></div>
+                  <div class="hud-ring-inner"></div>
+                  <div class="hud-radar-sweep"></div>
+                </div>
+                <span class="hud-loader-text" id="canvas-loader-text">COMPILING_NODE_GRAPH...</span>
+                <span class="hud-loader-subtext" id="canvas-loader-subtext">CORE_ENGINE // STABLE</span>
+              </div>
+              <div class="editor-canvas" id="canvas">
+                
+                <!-- Laser Scanner Sweep Overlay -->
+                <div class="canvas-scanner" id="canvas-scanner"></div>
+
+                <!-- Particle Background Layer -->
+                <div class="canvas-particles" id="canvas-particles"></div>
+
+                <!-- SVG Connector Wires -->
+                <svg class="canvas-svg-overlay" id="svg-connections">
+                  <!-- Base inactive lines -->
+                  <path class="connection-line svg-trace-active" d="M 230,105 C 290,105 280,225 340,225" />
+                  <path class="connection-line svg-trace-active" d="M 230,365 C 290,365 280,225 340,225" />
+                  <path class="connection-line svg-trace-active" d="M 520,225 C 580,225 580,105 640,105" />
+                  <path class="connection-line svg-trace-active" d="M 520,225 C 580,225 580,365 640,365" />
+
+                  <!-- Active flowing glow highlights -->
+                  <path class="flowing-line" id="flow-line-1" d="M 230,105 C 290,105 280,225 340,225" stroke="var(--accent-primary)" />
+                  <path class="flowing-line" id="flow-line-2" d="M 230,365 C 290,365 280,225 340,225" stroke="var(--accent-primary)" />
+                  <path class="flowing-line" id="flow-line-3" d="M 520,225 C 580,225 580,105 640,105" stroke="var(--accent-secondary)" />
+                  <path class="flowing-line" id="flow-line-4" d="M 520,225 C 580,225 580,365 640,365" stroke="var(--accent-secondary)" />
+                </svg>
+
+                <!-- ================= NODE A: CAMERA INPUT ================= -->
+                <article class="node-panel node-input" id="node-camera" style="left: 40px; top: 30px;">
+                  <div class="node-port-out" style="top: 50%; right: -6px;"></div>
+                  <div class="node-header">
+                    <span class="node-type">INPUT</span>
+                    <h4>Foliage Image</h4>
+                  </div>
+                  <div class="node-body">
+                    <p class="node-meta-lbl">Select Sample Upload:</p>
+                    <div class="sample-images-grid">
+                      <button class="sample-img-btn active-img" data-stress="0" onclick="selectSampleLeaf(this, 0)">
+                        <span>Leaf_Healthy.png</span>
+                      </button>
+                      <button class="sample-img-btn" data-stress="45" onclick="selectSampleLeaf(this, 45)">
+                        <span>Leaf_Rust_Spot.png</span>
+                      </button>
+                      <button class="sample-img-btn" data-stress="90" onclick="selectSampleLeaf(this, 90)">
+                        <span>Leaf_Severe_Blight.png</span>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- ================= NODE B: CHEMICAL TELEMETRY ================= -->
+                <article class="node-panel node-input" id="node-soil" style="left: 40px; top: 290px;">
+                  <div class="node-port-out" style="top: 50%; right: -6px;"></div>
+                  <div class="node-header">
+                    <span class="node-type">INPUT</span>
+                    <h4>Soil Telemetry</h4>
+                  </div>
+                  <div class="node-body">
+                    <div class="node-slider-box">
+                      <div class="slider-lbl-row">
+                        <span>Soil Moisture</span>
+                        <span id="node-moisture-val">60%</span>
+                      </div>
+                      <input type="range" class="premium-slider" id="node-moisture-input" min="10" max="100" value="60" oninput="updateSoilNode()">
+                    </div>
+                    <div class="node-slider-box" style="margin-top: 10px;">
+                      <div class="slider-lbl-row">
+                        <span>Soil pH</span>
+                        <span id="node-ph-val">6.8</span>
+                      </div>
+                      <input type="range" class="premium-slider" id="node-ph-input" min="3" max="11" step="0.1" value="6.8" oninput="updateSoilNode()">
+                    </div>
+                  </div>
+                </article>
+
+                <!-- ================= NODE C: RAG INTERPRETATION ================= -->
+                <article class="node-panel node-processor" id="node-rag" style="left: 340px; top: 150px;">
+                  <div class="node-port-in" style="top: 30%; left: -6px;"></div>
+                  <div class="node-port-in" style="top: 70%; left: -6px;"></div>
+                  <div class="node-port-out" style="top: 50%; right: -6px;"></div>
+                  <div class="node-header">
+                    <span class="node-type">COGNITIVE ENGINE</span>
+                    <h4>RAG Parser</h4>
+                  </div>
+                  <div class="node-body">
+                    <div class="indicator-row">
+                      <span>Threat Index:</span>
+                      <span id="node-threat-badge" class="badge-green">Nominal</span>
+                    </div>
+                    <p class="node-desc-text" id="node-rag-output" style="margin-top: 10px;">Context matched to clean cotton parameters.</p>
+                  </div>
+                </article>
+
+                <!-- ================= NODE D: INPUT STORE LOCATOR ================= -->
+                <article class="node-panel node-processor" id="node-store" style="left: 640px; top: 30px;">
+                  <div class="node-port-in" style="top: 50%; left: -6px;"></div>
+                  <div class="node-port-out" style="top: 50%; right: -6px;"></div>
+                  <div class="node-header">
+                    <span class="node-type">DIRECTORY ROUTE</span>
+                    <h4>Shop Search</h4>
+                  </div>
+                  <div class="node-body">
+                    <div class="node-slider-box">
+                      <div class="slider-lbl-row">
+                        <span>Search Radius</span>
+                        <span id="node-radius-val">15 km</span>
+                      </div>
+                      <input type="range" class="premium-slider" id="node-radius-input" min="5" max="50" value="15" oninput="updateStoreNode()">
+                    </div>
+                    <p class="node-desc-text" id="node-store-output" style="margin-top: 10px;">Found 4 verified input shops within Anand.</p>
+                  </div>
+                </article>
+
+                <!-- ================= NODE E: WHATSAPP BOT OUT ================= -->
+                <article class="node-panel node-output" id="node-whatsapp" style="left: 640px; top: 290px;">
+                  <div class="node-port-in" style="top: 50%; left: -6px;"></div>
+                  <div class="node-header">
+                    <span class="node-type">ACTUATOR</span>
+                    <h4>WhatsApp Out</h4>
+                  </div>
+                  <div class="node-body">
+                    <div class="indicator-row">
+                      <span>Delivery Route:</span>
+                      <span class="badge-blue" id="node-wa-status">Idle</span>
+                    </div>
+                    <p class="node-desc-text" id="node-wa-msg" style="margin-top: 10px;">Waiting for pipeline execution...</p>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+
+            <!-- Terminal Output Log -->
+            <div class="canvas-terminal">
+              <div class="terminal-header">
+                <span>RAG_COMPILATION_OUTPUT</span>
+                <button class="terminal-clear-btn" onclick="clearLogs()">Clear Console</button>
+              </div>
+              <div class="terminal-body" id="console-logs">
+                <div class="log-line text-muted">[System Initialized] Flow Sandbox loaded. Adjust node properties and run flow.</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Specifications (Interactive Pipeline Visualizer) -->
+    <section class="spec-section" id="spec">
+      <div class="wrapper">
+        <div class="center-header reveal-fade">
+          <span class="sup-title">Platform Architecture</span>
+          <h2>Decentralized Agronomy Pipeline</h2>
+          <p>Our software structures bridge complex multimodal telemetry with local agricultural networks seamlessly.</p>
+        </div>
+
+        <div class="spec-interactive-layout reveal-fade">
+          <!-- Interactive Selector Tabs (Left) -->
+          <div class="spec-selectors">
+            <button class="spec-selector tilt-card active-spec" onclick="switchSpecTab(1)">
+              <span class="spec-num">01</span>
+              <div class="spec-sel-content">
+                <h3>Vector-Grounded Diagnostics</h3>
+                <p>Farmers submit prompts or leaf photos. The RAG engine matches queries to verified agricultural databases.</p>
+              </div>
+            </button>
+
+            <button class="spec-selector tilt-card" onclick="switchSpecTab(2)">
+              <span class="spec-num">02</span>
+              <div class="spec-sel-content">
+                <h3>Geospatial Input Matching</h3>
+                <p>Connects farmers to nearby sellers. Pulls live stock metrics, falling back to Google Maps crawling boundaries.</p>
+              </div>
+            </button>
+
+            <button class="spec-selector tilt-card" onclick="switchSpecTab(3)">
+              <span class="spec-num">03</span>
+              <div class="spec-sel-content">
+                <h3>Direct Produce Listings</h3>
+                <p>Bypasses brokers by hosting a direct, verified grower marketplace certified by local regional heads.</p>
+              </div>
+            </button>
+          </div>
+
+          <!-- Dynamic Visual Display Panel (Right) -->
+          <div class="spec-visualizer-pane">
+            <!-- Inline Spec Tab Switch Loader Overlay (Cyber HUD Interface) -->
+            <div class="spec-loader-overlay" id="spec-pane-loader" style="display: none;">
+              <div class="hud-loader-wrapper">
+                <div class="hud-target-cross"></div>
+                <div class="hud-ring-outer"></div>
+                <div class="hud-ring-inner"></div>
+                <div class="hud-radar-sweep"></div>
+              </div>
+              <span class="hud-loader-text" id="spec-pane-loader-text">SYNCING_TELEMETRY_...</span>
+              <span class="hud-loader-subtext" id="spec-pane-loader-subtext">INDEXING_RAG_VECTORS //</span>
+            </div>
+            
+            <!-- View 1: RAG Vector Cloud -->
+            <div class="spec-visual-view active-view" id="spec-view-1">
+              <div class="vector-grid-box">
+                <div class="vector-node query-node">q_leaf_spot</div>
+                <div class="vector-node match-node-1">urea_remedy</div>
+                <div class="vector-node match-node-2">blight_quarantine</div>
+                <div class="vector-node match-node-3">pest_compound_12</div>
+                <div class="vector-node match-node-4">organic_compost</div>
+                <svg class="vector-svg-lines" viewBox="0 0 300 200" width="100%" height="100%">
+                  <line class="vector-connect-line" x1="150" y1="100" x2="80" y2="40" stroke-dasharray="3 3"/>
+                  <line class="vector-connect-line" x1="150" y1="100" x2="220" y2="50" stroke-dasharray="3 3"/>
+                  <line class="vector-connect-line" x1="150" y1="100" x2="60" y2="140" stroke-dasharray="3 3"/>
+                  <line class="vector-connect-line" x1="150" y1="100" x2="240" y2="150" stroke-dasharray="3 3"/>
+                </svg>
+                <div class="vector-grid-lines"></div>
+              </div>
+            </div>
+
+            <!-- View 2: Sonar Maps Crawler -->
+            <div class="spec-visual-view" id="spec-view-2" style="display: none;">
+              <div class="radar-scan-box">
+                <div class="radar-sweep-line"></div>
+                <div class="radar-ping-node ping-1">Store_A: 2.4km</div>
+                <div class="radar-ping-node ping-2">Store_B: 5.1km</div>
+                <div class="radar-ping-node ping-3">Store_C: 12km</div>
+                <div class="radar-concentric-circle circle-1"></div>
+                <div class="radar-concentric-circle circle-2"></div>
+                <div class="radar-concentric-circle circle-3"></div>
+              </div>
+            </div>
+
+            <!-- View 3: Trust Ledger Verification Timeline -->
+            <div class="spec-visual-view" id="spec-view-3" style="display: none;">
+              <div class="ledger-timeline-box">
+                <div class="ledger-block block-verified">
+                  <span class="ledger-status-dot"></span>
+                  <div class="ledger-block-content">
+                    <h4>Village Node Signed</h4>
+                    <p>Ref ID: VG_01A_APPROVED</p>
+                  </div>
+                </div>
+                <div class="ledger-block block-verified">
+                  <span class="ledger-status-dot"></span>
+                  <div class="ledger-block-content">
+                    <h4>Taluka Overlord Verified</h4>
+                    <p>Signature Ledger: TK_12B</p>
+                  </div>
+                </div>
+                <div class="ledger-block block-pending">
+                  <span class="ledger-status-dot"></span>
+                  <div class="ledger-block-content">
+                    <h4>Produce Listing Live</h4>
+                    <p>Status: Synchronized to B2C Index</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spatial Info Panel -->
+    <section class="about-section" id="about">
+      <div class="wrapper">
+        <div class="about-layout reveal-fade">
+          <div class="about-content">
+            <span class="sup-title">Telemetry Twin</span>
+            <h2>Computational Botanical Engine</h2>
+            <p>
+              We design premium digital twin pipelines that map biological inputs (chlorophyll load, soil matrix pH, temperature metrics) into actionable alerts. By combining LLM-RAG pipelines with human trust systems, we protect food quality at its origin.
+            </p>
+            <div class="about-stats-row" id="stats-section">
+              <div class="stat-box">
+                <span class="stat-num" id="stat-accuracy">0%</span>
+                <span class="stat-label">Model Accuracy</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-num" id="stat-farms">0</span>
+                <span class="stat-label">Verified Farms</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-num" id="stat-nodes">0</span>
+                <span class="stat-label">Regional Nodes</span>
+              </div>
+            </div>
+            <button class="btn btn-secondary" id="scan-hologram-btn" style="margin-top: 24px;" onclick="triggerHologramScan()">Execute Crop Scan</button>
+          </div>
+          
+          <div class="about-visual">
+            <div class="about-graphic-frame" id="hologram-frame">
+              <div class="spinning-radial-disk"></div>
+              <div class="inner-cyber-rings"></div>
+              
+              <!-- Scan status banner overlay -->
+              <div class="hologram-scan-banner" id="hologram-banner" style="display: none;">
+                <span class="hologram-banner-text">SYNCING BIOTIC INDEX...</span>
+              </div>
+              
+              <!-- Holographic Crop mesh SVG -->
+              <svg class="hologram-mesh-svg" viewBox="0 0 200 200" width="100%" height="100%">
+                <!-- Dynamic mesh curves -->
+                <path class="svg-trace-active" d="M 20,100 Q 100,20 180,100 T 20,100" fill="none" stroke="var(--accent-primary)" stroke-width="1" opacity="0.2" stroke-dasharray="2 2"/>
+                <path class="svg-trace-active" d="M 20,100 Q 100,60 180,100 T 20,100" fill="none" stroke="var(--accent-primary)" stroke-width="1" opacity="0.3"/>
+                <path class="svg-trace-active" d="M 20,100 Q 100,140 180,100 T 20,100" fill="none" stroke="var(--accent-secondary)" stroke-width="1" opacity="0.3"/>
+                <path class="svg-trace-active" d="M 20,100 Q 100,180 180,100 T 20,100" fill="none" stroke="var(--accent-secondary)" stroke-width="1" opacity="0.2" stroke-dasharray="2 2"/>
+                
+                <!-- Laser scan line indicator -->
+                <line id="hologram-scan-line" x1="10" y1="20" x2="190" y2="20" stroke="var(--accent-primary)" stroke-width="1.5" opacity="0.8" />
+                
+                <!-- Graphic pins -->
+                <circle cx="100" cy="60" r="3" fill="#ffffff" />
+                <line x1="100" y1="60" x2="148" y2="35" stroke="#ffffff" stroke-width="0.75" opacity="0.5" />
+                <text x="152" y="38" fill="#ffffff" font-size="6" font-family="var(--font-mono)" opacity="0.8">RAG: 98.4%</text>
+
+                <circle cx="60" cy="120" r="3" fill="var(--accent-secondary)" />
+                <line x1="60" y1="120" x2="20" y2="140" stroke="var(--accent-secondary)" stroke-width="0.75" opacity="0.5" />
+                <text x="5" y="148" fill="var(--accent-secondary)" font-size="6" font-family="var(--font-mono)" opacity="0.8">pH: 6.8 [OK]</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Immersive Quantum Portal CTA -->
+    <section class="cta-portal-section">
+      <div class="wrapper">
+        <div class="cta-portal-wrapper">
+          <div class="portal-rings">
+            <span class="portal-ring ring-1"></span>
+            <span class="portal-ring ring-2"></span>
+          </div>
+          <div class="cta-content">
+            <h2>Accelerate Agricultural Intelligence</h2>
+            <p>Connect your sensor pipelines to the Krishidhi Fgen Cognitive Engine. Standardize yield diagnostics.</p>
+            <div class="cta-btns">
+              <button class="btn btn-primary" onclick="alert('Synthesizer verified. Core template ready for Next.js migration.')">Deploy Flow Node</button>
+              <a href="#sandbox" class="btn btn-secondary">Access Sandbox</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrapper">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <svg class="logo-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 2C12 2 15 7 15 12C15 17 12 22 12 22" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 2C12 2 9 7 9 12C9 17 12 22 12 22" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <span>KRISHIDHI <span class="fgen-text">FGEN</span></span>
+          </a>
+          <p class="brand-bio">Building visual cognitive flow systems and agricultural AI models to optimize Indian food security.</p>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="col-title">Console</span>
+          <a href="#sandbox" class="footer-link">Flow Sandbox</a>
+          <a href="#spec" class="footer-link">Platform Specs</a>
+          <a href="#about" class="footer-link">Agronomy Nodes</a>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="col-title">Ecosystem</span>
+          <a href="#" class="footer-link">RAG Datasets</a>
+          <a href="#" class="footer-link">WhatsApp Bot API</a>
+          <a href="#" class="footer-link">Maps crawler</a>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="col-title">Legal Node</span>
+          <a href="#" class="footer-link">System Security</a>
+          <a href="#" class="footer-link">Privacy Kernel</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="copy-text">© 2026 Krishidhi Fgen Private Limited. Flow systems and databases protected.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Control & Interactive Simulation Logic -->
+  <script>
+    // Sci-Fi Glitch Text Decipher/Decoder Animation Utility
+    function glitchDecipherText(element, targetText) {
+      if (!element) return;
+      const chars = '!@#$%^&*()_+{}:"<>?,./;[]\\=-~`0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let iterations = 0;
+      clearInterval(element.glitchInterval);
+      
+      element.glitchInterval = setInterval(() => {
+        element.textContent = targetText
+          .split("")
+          .map((letter, index) => {
+            if (letter === " ") return " ";
+            if (index < iterations) {
+              return targetText[index];
+            }
+            return chars[Math.floor(Math.random() * chars.length)];
+          })
+          .join("");
+        
+        if (iterations >= targetText.length) {
+          clearInterval(element.glitchInterval);
+        }
+        iterations += 1 / 1.5;
+      }, 25);
+    }
+
+    // Theme switch
+    const themeBtn = document.getElementById('theme-toggle');
+    const bodyClass = document.body;
+
+    themeBtn.addEventListener('click', () => {
+      bodyClass.classList.toggle('light-theme');
+      const activeTheme = bodyClass.classList.contains('light-theme') ? 'light' : 'dark';
+      localStorage.setItem('krishidhi-theme-pref', activeTheme);
+    });
+
+    const storedTheme = localStorage.getItem('krishidhi-theme-pref');
+    if (storedTheme === 'light') {
+      bodyClass.classList.add('light-theme');
+    }
+
+    // Custom mouse-trailing cursor glow
+    const cursorGlow = document.getElementById('cursor-glow');
+    let mX = 0, mY = 0;
+    let currentX = 0, currentY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mX = e.clientX;
+      mY = e.clientY;
+    });
+
+    function loopCursor() {
+      // Linear interpolation to make the trailing lag effect extremely smooth
+      currentX += (mX - currentX) * 0.08;
+      currentY += (mY - currentY) * 0.08;
+      
+      cursorGlow.style.left = currentX + 'px';
+      cursorGlow.style.top = currentY + 'px';
+      
+      requestAnimationFrame(loopCursor);
+    }
+    loopCursor();
+
+    // Mouse grid parallax translation
+    const gridOverlay = document.getElementById('grid-overlay');
+    document.addEventListener('mousemove', e => {
+      const offsetX = (e.clientX - window.innerWidth / 2) * 0.025;
+      const offsetY = (e.clientY - window.innerHeight / 2) * 0.025;
+      gridOverlay.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    });
+
+    // IntersectionObserver scroll reveals
+    const revealEls = document.querySelectorAll('.reveal-fade, .node-editor-workspace, .spec-interactive-layout, .about-layout');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('page-loaded');
+    });
+
+    // Stats counter trigger on scroll
+    const statsSection = document.getElementById('stats-section');
+    let countersInitiated = false;
+
+    const statsObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countersInitiated) {
+          countersInitiated = true;
+          animateValue(document.getElementById('stat-accuracy'), 0, 98.4, 1, "%");
+          animateValue(document.getElementById('stat-farms'), 0, 12400, 0, "");
+          animateValue(document.getElementById('stat-nodes'), 0, 84, 0, "");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (statsSection) statsObserver.observe(statsSection);
+
+    function animateValue(obj, start, end, decimals, suffix) {
+      let current = start;
+      const range = end - start;
+      const duration = 1500;
+      const steps = 60;
+      const stepTime = duration / steps;
+      const increment = range / steps;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+          obj.textContent = end.toFixed(decimals) + suffix;
+          clearInterval(timer);
+        } else {
+          obj.textContent = current.toFixed(decimals) + suffix;
+        }
+      }, stepTime);
+    }
+
+    // Spawn animated floating data particles in Canvas
+    const particlesContainer = document.getElementById('canvas-particles');
+    function spawnCanvasParticles() {
+      for (let i = 0; i < 15; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'data-particle';
+        
+        // Random layout coordinates
+        const leftPos = Math.random() * 880;
+        const driftDelay = Math.random() * 6;
+        const driftDur = 4 + Math.random() * 4;
+        
+        particle.style.left = leftPos + 'px';
+        particle.style.animationDelay = driftDelay + 's';
+        particle.style.animationDuration = driftDur + 's';
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+    spawnCanvasParticles();
+
+    // Node spotlight hover & 3D Card Tilt configuration
+    function setupInteractiveEffects() {
+      const spotlightCards = document.querySelectorAll('.node-panel, .spec-card, .editor-sidebar, .canvas-terminal, .spec-selector, .about-graphic-frame');
+      spotlightCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+          
+          // Apply 3D Tilt if card has the tilt-card helper class
+          if (card.classList.contains('tilt-card')) {
+            const xc = rect.width / 2;
+            const yc = rect.height / 2;
+            const dx = x - xc;
+            const dy = y - yc;
+            const rx = -(dy / yc) * 5.5;
+            const ry = (dx / xc) * 5.5;
+            card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.015, 1.015, 1.015)`;
+          }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          if (card.classList.contains('tilt-card')) {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+          }
+        });
+      });
+    }
+    setupInteractiveEffects();
+
+    // Node Selection Sidebar Logic
+    const nodePanels = document.querySelectorAll('.node-panel');
+    const infoPanel = document.getElementById('node-info-panel');
+
+    const nodeMetaInfo = {
+      'node-camera': {
+        title: 'Foliage Image Node',
+        type: 'Sensor Input [Multimodal]',
+        desc: 'Processes camera photos uploaded by farmers. Replaces raw image telemetry with leaf-spot diagnostic parameters before sending payloads to RAG anomaly models.',
+        ports: 'Output: Disease Severity Metrics'
+      },
+      'node-soil': {
+        title: 'Soil Telemetry Node',
+        type: 'Sensor Input [Hardware]',
+        desc: 'Captures physical soil parameters (matrix pH and volumetric water content). Telemetry parameters are updated via real-time sliders.',
+        ports: 'Output: Chemistry Metrics'
+      },
+      'node-rag': {
+        title: 'RAG Parser Node',
+        type: 'Cognitive Processor [RAG LLM]',
+        desc: 'Queries localized vector database arrays. Combines visual leaf-spot parameters with soil pH and moisture vectors to extract targeted disease diagnostics.',
+        ports: 'Inputs: Camera/Chemistry; Output: Remediation Data'
+      },
+      'node-store': {
+        title: 'Shop Search Node',
+        type: 'Directory Processor [API Crawler]',
+        desc: 'Identifies registered input stores located within target search limits. Integrates dynamic shop inventories and fallback Google Maps search data.',
+        ports: 'Input: Remediation Data; Output: Shop Profiles'
+      },
+      'node-whatsapp': {
+        title: 'WhatsApp Out Node',
+        type: 'System Actuator [WhatsApp API]',
+        desc: 'Triggers WhatsApp messaging loops, sending matched diagnostic summaries and direct local shop phone links to the farmer.',
+        ports: 'Input: Shop Profiles'
+      }
+    };
+
+    nodePanels.forEach(panel => {
+      panel.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nodePanels.forEach(p => p.classList.remove('node-active'));
+        panel.classList.add('node-active');
+        
+        const id = panel.id;
+        if (nodeMetaInfo[id]) {
+          const info = nodeMetaInfo[id];
+          infoPanel.innerHTML = `
+            <div class="info-node-card">
+              <span class="info-type">${info.type}</span>
+              <h4>${info.title}</h4>
+              <p>${info.desc}</p>
+              <div class="info-ports"><strong>Ports:</strong> ${info.ports}</div>
+            </div>
+          `;
+        }
+      });
+    });
+
+    document.getElementById('canvas').addEventListener('click', () => {
+      nodePanels.forEach(p => p.classList.remove('node-active'));
+      infoPanel.innerHTML = `<p class="muted-text">Select a node on the canvas to edit its variables and review its connection ports.</p>`;
+    });
+
+    // Variables for parameters
+    let currentInfectionStress = 0;
+    let soilMoisture = 60;
+    let soilPh = 6.8;
+    let storeRadius = 15;
+
+    // Node Camera SAMPLE select
+    function selectSampleLeaf(btn, stressVal) {
+      document.querySelectorAll('.sample-img-btn').forEach(b => b.classList.remove('active-img'));
+      btn.classList.add('active-img');
+      currentInfectionStress = stressVal;
+      
+      logAction(`[NODE_UPDATE] Camera input stress severity updated: ${stressVal}%`);
+      recalculateFlowProperties();
+    }
+
+    // Node Soil trigger update
+    function updateSoilNode() {
+      soilMoisture = parseInt(document.getElementById('node-moisture-input').value);
+      soilPh = parseFloat(document.getElementById('node-ph-input').value);
+      
+      document.getElementById('node-moisture-val').textContent = soilMoisture + '%';
+      document.getElementById('node-ph-val').textContent = soilPh;
+      
+      logAction(`[NODE_UPDATE] Soil telemetry parameters changed: Moisture=${soilMoisture}%, pH=${soilPh}`);
+      recalculateFlowProperties();
+    }
+
+    // Node Store radius update
+    function updateStoreNode() {
+      storeRadius = parseInt(document.getElementById('node-radius-input').value);
+      document.getElementById('node-radius-val').textContent = storeRadius + ' km';
+      document.getElementById('metrics-radius').textContent = storeRadius + ' km';
+      
+      logAction(`[NODE_UPDATE] Shop directory locator search radius: ${storeRadius}km`);
+      recalculateFlowProperties();
+    }
+
+    // Console Logging helper
+    const consoleLogs = document.getElementById('console-logs');
+    function logAction(msg, type = 'info') {
+      const line = document.createElement('div');
+      line.className = `log-line ${type === 'error' ? 'log-err' : type === 'success' ? 'log-success' : 'log-info'}`;
+      
+      const time = new Date().toLocaleTimeString();
+      line.textContent = `[${time}] ${msg}`;
+      
+      consoleLogs.appendChild(line);
+      consoleLogs.scrollTop = consoleLogs.scrollHeight;
+    }
+
+    function clearLogs() {
+      consoleLogs.innerHTML = `<div class="log-line text-muted">[Logs Cleared] Sandbox running.</div>`;
+    }
+
+    // Calculate details on changes
+    function recalculateFlowProperties() {
+      const threatBadge = document.getElementById('node-threat-badge');
+      const ragOutput = document.getElementById('node-rag-output');
+      const storeOutput = document.getElementById('node-store-output');
+      const metricsShops = document.getElementById('metrics-shops');
+      const metricsConfidence = document.getElementById('metrics-confidence');
+
+      if (currentInfectionStress < 25) {
+        threatBadge.textContent = 'Nominal';
+        threatBadge.className = 'badge-green';
+        ragOutput.textContent = 'Context matched: Healthy cotton. Standard organic nitrogen treatment recommended.';
+        metricsConfidence.textContent = '99.1%';
+      } else if (currentInfectionStress >= 25 && currentInfectionStress <= 60) {
+        threatBadge.textContent = 'Moderate';
+        threatBadge.className = 'badge-blue';
+        ragOutput.textContent = 'Context matched: Bacterial blight spots. Recommended: Copper oxychloride mixture.';
+        metricsConfidence.textContent = '96.2%';
+      } else {
+        threatBadge.textContent = 'Critical';
+        threatBadge.className = 'badge-red';
+        ragOutput.textContent = 'Context matched: Severe Leaf Blight. High risk. Recommended: Immediate copper dose + quarantine.';
+        metricsConfidence.textContent = '98.4%';
+      }
+
+      const baseShops = currentInfectionStress > 20 ? 3 : 2;
+      const radiusFactor = Math.floor(storeRadius / 10);
+      const matchedShops = baseShops + radiusFactor;
+      storeOutput.textContent = `Found ${matchedShops} verified input shops within Anand.`;
+      metricsShops.textContent = `${matchedShops} Stores`;
+    }
+
+    // Run Pipeline click event
+    const runBtn = document.getElementById('run-pipeline-btn');
+    const scannerElement = document.getElementById('canvas-scanner');
+    const flowLines = [
+      document.getElementById('flow-line-1'),
+      document.getElementById('flow-line-2'),
+      document.getElementById('flow-line-3'),
+      document.getElementById('flow-line-4')
+    ];
+    const execStatus = document.getElementById('execution-status');
+    runBtn.addEventListener('click', () => {
+      execStatus.textContent = 'Compiling...';
+      execStatus.className = 'status-badge status-compiling';
+      
+      const canvasLoader = document.getElementById('canvas-loader');
+      const canvasLoaderText = document.getElementById('canvas-loader-text');
+      
+      // Show canvas in-place loader
+      canvasLoader.style.display = 'flex';
+      glitchDecipherText(canvasLoaderText, 'COMPILING_NODE_GRAPH...');
+      
+      logAction('>>> Compiling Agronomy Pipeline...', 'info');
+      logAction('Retrieving input coordinates...', 'info');
+      logAction(`Parameters: leaf_infection_idx=${currentInfectionStress}%, pH=${soilPh}, moisture=${soilMoisture}%, radius=${storeRadius}km`, 'info');
+
+      // Change text middle sequence
+      setTimeout(() => {
+        glitchDecipherText(canvasLoaderText, 'SYNCING_WHATSAPP_WEBHOOK...');
+      }, 700);
+
+      // Trigger radar scanner beam sweep animation
+      scannerElement.classList.remove('scanning-active');
+      void scannerElement.offsetWidth; // Trigger reflow to restart animation natively
+      scannerElement.classList.add('scanning-active');
+
+      // Trigger line signals speedup
+      flowLines.forEach(line => {
+        if (line) line.style.animation = 'dash-flow 0.5s linear infinite';
+      });
+
+      setTimeout(() => {
+        // Hide canvas in-place loader
+        canvasLoader.style.display = 'none';
+        
+        logAction('Context grounding matched to active agricultural vector indices.', 'success');
+        
+        let diagnosisMsg = "";
+        let treatmentInput = "";
+        if (currentInfectionStress < 25) {
+          diagnosisMsg = "Healthy cotton crop";
+          treatmentInput = "Organic Bio-Nutrients";
+        } else if (currentInfectionStress >= 25 && currentInfectionStress <= 60) {
+          diagnosisMsg = "Bacterial Blight Leaf-Spots";
+          treatmentInput = "Copper Oxychloride Compound";
+        } else {
+          diagnosisMsg = "Severe Foliar Blight Pathogen";
+          treatmentInput = "Copper Oxychloride + Quarantine Trigger";
+        }
+        
+        logAction(`[DIAGNOSIS] ${diagnosisMsg} identified (RAG match)`, 'success');
+
+        const shopCount = parseInt(document.getElementById('metrics-shops').textContent);
+        logAction(`[STORE_LOCATOR] Crawler verified ${shopCount} local inventories with target product stock: ${treatmentInput}`, 'info');
+
+        const waMsg = document.getElementById('node-wa-msg');
+        const waStatus = document.getElementById('node-wa-status');
+        
+        waStatus.textContent = 'Dispatched';
+        waStatus.className = 'badge-green';
+        waMsg.textContent = `Alert sent: ${diagnosisMsg} spotted. Buy ${treatmentInput} at local shop.`;
+        
+        logAction(`[WhatsApp API] Message payload dispatched to farmer terminal. Status: Delivered.`, 'success');
+
+        execStatus.textContent = 'Success';
+        execStatus.className = 'status-badge status-success';
+
+        flowLines.forEach(line => {
+          if (line) line.style.animation = 'dash-flow 2.5s linear infinite';
+        });
+
+      }, 1500);
+    });
+
+    // Spec Tab Switcher logic with inline loader
+    function switchSpecTab(index) {
+      const selectors = document.querySelectorAll('.spec-selector');
+      const views = document.querySelectorAll('.spec-visual-view');
+      const paneLoader = document.getElementById('spec-pane-loader');
+      const paneLoaderText = document.getElementById('spec-pane-loader-text');
+      
+      selectors.forEach((sel, i) => {
+        sel.classList.remove('active-spec');
+        if (i === index - 1) {
+          sel.classList.add('active-spec');
+        }
+      });
+      
+      // Hide all active views
+      views.forEach(view => {
+        view.style.display = 'none';
+        view.classList.remove('active-view');
+      });
+      
+      // Select loading text
+      let loadingText = "Syncing telemetry data...";
+      if (index === 1) loadingText = "Grounding semantic coordinates...";
+      if (index === 2) loadingText = "Calculating geospatial radii...";
+      if (index === 3) loadingText = "Re-indexing decentralized blocks...";
+      
+      // Trigger loader overlay
+      paneLoader.style.display = 'flex';
+      glitchDecipherText(paneLoaderText, loadingText.toUpperCase());
+      
+      setTimeout(() => {
+        paneLoader.style.display = 'none';
+        
+        // Show view
+        const targetView = views[index - 1];
+        if (targetView) {
+          targetView.style.display = 'block';
+          setTimeout(() => {
+            targetView.classList.add('active-view');
+          }, 20);
+        }
+      }, 700);
+    }
+
+    // Hologram Scan Trigger sequence
+    function triggerHologramScan() {
+      const scanBanner = document.getElementById('hologram-banner');
+      const scanLine = document.getElementById('hologram-scan-line');
+      const scanBtn = document.getElementById('scan-hologram-btn');
+      
+      scanBtn.disabled = true;
+      scanBtn.textContent = 'Scanning Cell Grid...';
+      
+      // Show scan overlay banner
+      scanBanner.style.display = 'flex';
+      glitchDecipherText(document.getElementById('hologram-banner-text'), 'SYNCING BIOTIC INDEX...');
+      
+      // Speed up scanner animation line by changing inline styling
+      scanLine.style.animationDuration = '0.8s';
+      
+      // Reset stats accuracy counters
+      animateValue(document.getElementById('stat-accuracy'), 0, 98.4, 1, "%");
+      animateValue(document.getElementById('stat-farms'), 0, 12400, 0, "");
+      animateValue(document.getElementById('stat-nodes'), 0, 84, 0, "");
+      
+      setTimeout(() => {
+        scanBanner.style.display = 'none';
+        scanLine.style.animationDuration = '4s';
+        scanBtn.disabled = false;
+        scanBtn.textContent = 'Execute Crop Scan';
+      }, 2000);
+    }
+
+    recalculateFlowProperties();
+  </script>
+</body>
+</html>
