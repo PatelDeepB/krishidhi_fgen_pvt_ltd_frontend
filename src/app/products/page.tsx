@@ -1,10 +1,11 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import KrishiVigyanGraph from '@/components/KrishiVigyanGraph';
 
 export const metadata: Metadata = {
-  title: 'Our Products & Consoles',
-  description: 'Explore the agronomic software products and tools engineered by Krishidhi Fgen Private Limited, including the Krishi Vigyan AI multilingual assistant and the Diagnostics Console.',
-  keywords: ['krishi vigyan ai', 'diagnostics console', 'agritech software', 'crop disease detection whatsapp bot', 'F2C marketplace listings'],
+  title: 'Our Products',
+  description: 'Explore the agronomic software products engineered by Krishidhi Fgen Private Limited, including the Krishi Vigyan AI multilingual assistant.',
+  keywords: ['krishi vigyan ai', 'agritech software', 'crop disease detection whatsapp bot', 'F2C marketplace listings'],
   alternates: {
     canonical: '/products',
   },
@@ -27,16 +28,6 @@ export default function ProductsPage() {
         'priceCurrency': 'INR',
         'availability': 'https://schema.org/InStock'
       }
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Product',
-      'name': 'Diagnostics Console',
-      'description': 'The visual diagnostic simulator used to customize agronomic settings and verify parameter connections for agricultural models.',
-      'brand': {
-        '@type': 'Brand',
-        'name': 'Krishidhi'
-      }
     }
   ];
 
@@ -50,9 +41,9 @@ export default function ProductsPage() {
       {/* Header */}
       <div className="center-header reveal-fade" style={{ maxWidth: '800px', margin: '0 auto 64px' }}>
         <span className="sup-title">Product Catalog</span>
-        <h1 style={{ fontSize: '3rem', marginBottom: '24px' }}>Our Products & Consoles</h1>
+        <h1 style={{ fontSize: '3rem', marginBottom: '24px' }}>Our Products</h1>
         <p className="hero-subtext">
-          Explore the software products and visual consoles engineered by Krishidhi Fgen Private Limited.
+          Explore the software products engineered by Krishidhi Fgen Private Limited.
         </p>
       </div>
 
@@ -93,33 +84,17 @@ export default function ProductsPage() {
               </p>
             </div>
           </div>
-        </section>
 
-        {/* Product 2: Diagnostics Console */}
-        <section id="flowgrids" className="editor-sidebar tilt-card reveal-fade" style={{ padding: '40px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '24px' }}>
-            <div>
-              <span className="info-type" style={{ color: 'var(--accent-secondary)', letterSpacing: '0.1em' }}>DIAGNOSTICS SYSTEMS</span>
-              <h2 style={{ fontSize: '2rem', marginTop: '6px' }}>Diagnostics Console</h2>
-            </div>
-            <a href="/console" className="btn btn-secondary">
-              Launch Console
-            </a>
-          </div>
-          
-          <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '24px' }}>
-            The visual diagnostic simulator used to customize agronomic settings and verify parameter connections. It models leaf stress uploads, soil parameters range queries, and triggers RAG database matches.
-          </p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
-            <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '20px' }}>
-              <strong style={{ display: 'block', color: 'var(--text-primary)', fontSize: '0.95rem', marginBottom: '6px' }}>
-                Interactive Compiler
-              </strong>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
-                Adjust crop parameters on a unified visual editor canvas, compiling diagnostic routes in real-time.
+          {/* Interactive Pipeline Flow Graph nested inside Krishi Vigyan AI */}
+          <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '40px', marginTop: '40px' }}>
+            <div style={{ marginBottom: '32px', textAlign: 'center' }}>
+              <span className="sup-title">Under the Hood</span>
+              <h3 style={{ fontSize: '1.8rem', marginTop: '6px', color: 'var(--text-primary)' }}>System Architecture Flow</h3>
+              <p className="hero-subtext" style={{ fontSize: '0.92rem', maxWidth: '700px', margin: '8px auto 0' }}>
+                Simulate how the Krishi Vigyan AI pipeline processes a farmer's query, checks RAG context, and dispatches localized WhatsApp advice.
               </p>
             </div>
+            <KrishiVigyanGraph />
           </div>
         </section>
 

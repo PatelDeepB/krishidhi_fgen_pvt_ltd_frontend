@@ -46,7 +46,6 @@ export default function Header() {
           <a href="/about" className="nav-link">About Us</a>
           <a href="/products" className="nav-link">Our Products</a>
           <a href="/pillars" className="nav-link">Pillars & Systems</a>
-          <a href="/console" className="nav-link">Diagnostics Console</a>
           <a href="/careers" className="nav-link">Careers</a>
         </nav>
         
@@ -54,7 +53,7 @@ export default function Header() {
           <button className="theme-toggle" id="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
             <span className="toggle-dot"></span>
           </button>
-          <a href="/console" className="btn btn-primary">Launch Console</a>
+          <a href="https://krishivigyanai.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Launch Console</a>
         </div>
       </div>
     </header>

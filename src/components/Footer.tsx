@@ -36,8 +36,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-links-col">
-            <span className="col-title">Consoles</span>
-            <a href="/console" className="footer-link">Diagnostics Console</a>
+            <span className="col-title">Systems</span>
             <a href="/pillars" className="footer-link">Pillars & Systems</a>
           </div>
         </div>
