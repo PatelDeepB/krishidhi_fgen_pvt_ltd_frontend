@@ -33,6 +33,8 @@ export default function Header() {
           <img 
             src="/logo_KV_nobg.png" 
             alt="Krishidhi Logo" 
+            width={32}
+            height={32}
             style={{ height: '32px', width: 'auto', objectFit: 'contain' }} 
           />
           <span style={{ fontSize: '1.05rem', fontWeight: 900, letterSpacing: '0.05em', color: 'var(--text-primary)' }}>

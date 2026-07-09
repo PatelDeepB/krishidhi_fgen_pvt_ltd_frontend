@@ -1,8 +1,52 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Products & Consoles',
+  description: 'Explore the agronomic software products and tools engineered by Krishidhi Fgen Private Limited, including the Krishi Vigyan AI multilingual assistant and the Diagnostics Console.',
+  keywords: ['krishi vigyan ai', 'diagnostics console', 'agritech software', 'crop disease detection whatsapp bot', 'F2C marketplace listings'],
+  alternates: {
+    canonical: '/products',
+  },
+};
 
 export default function ProductsPage() {
+  const productsSchema = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      'name': 'Krishi Vigyan AI',
+      'description': 'A free AI assistant that gives Indian farmers expert crop advice, disease detection, and weather insights, delivered over WhatsApp in regional languages.',
+      'brand': {
+        '@type': 'Brand',
+        'name': 'Krishidhi'
+      },
+      'offers': {
+        '@type': 'Offer',
+        'price': '0',
+        'priceCurrency': 'INR',
+        'availability': 'https://schema.org/InStock'
+      }
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      'name': 'Diagnostics Console',
+      'description': 'The visual diagnostic simulator used to customize agronomic settings and verify parameter connections for agricultural models.',
+      'brand': {
+        '@type': 'Brand',
+        'name': 'Krishidhi'
+      }
+    }
+  ];
+
   return (
-    <div className="wrapper" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productsSchema) }}
+      />
+      <div className="wrapper" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
       {/* Header */}
       <div className="center-header reveal-fade" style={{ maxWidth: '800px', margin: '0 auto 64px' }}>
         <span className="sup-title">Product Catalog</span>
@@ -81,5 +125,6 @@ export default function ProductsPage() {
 
       </div>
     </div>
+    </>
   );
 }

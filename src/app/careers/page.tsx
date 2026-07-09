@@ -1,8 +1,35 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Careers',
+  description: 'Build the future of agritech. Discover career opportunities, engineering values, and culture at Krishidhi Fgen Private Limited.',
+  keywords: ['agritech jobs', 'careers at krishidhi', 'software engineering jobs india', 'agriculture AI developer roles'],
+  alternates: {
+    canonical: '/careers',
+  },
+};
 
 export default function CareersPage() {
+  const careersSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    'name': 'Careers | Krishidhi Fgen',
+    'description': 'Discover software and AI career paths at Krishidhi Fgen Private Limited.',
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'Krishidhi Fgen Private Limited',
+      'url': 'https://krishidhi.com'
+    }
+  };
+
   return (
-    <div className="wrapper" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(careersSchema) }}
+      />
+      <div className="wrapper" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
       <div className="center-header reveal-fade" style={{ maxWidth: '800px', margin: '0 auto 64px' }}>
         <span className="sup-title">Join Our Team</span>
         <h1 style={{ fontSize: '3rem', marginBottom: '24px' }}>Build the Future of Agritech</h1>
@@ -45,5 +72,6 @@ export default function CareersPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

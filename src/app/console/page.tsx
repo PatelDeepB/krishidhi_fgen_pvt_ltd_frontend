@@ -1,5 +1,15 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import FlowOrchestrator from '@/components/FlowOrchestrator';
+
+export const metadata: Metadata = {
+  title: 'Diagnostics Console',
+  description: 'Access the interactive diagnostics console. Adjust parameter inputs, simulate crop diagnostics, and run compiler tests.',
+  keywords: ['diagnostics console', 'agrotech compiler', 'sensor parameters simulation', 'agronomy dashboard sandbox'],
+  alternates: {
+    canonical: '/console',
+  },
+};
 
 export default function ConsolePage() {
   return (

@@ -12,6 +12,8 @@ export default function Footer() {
               <img 
                 src="/logo_KV_nobg.png" 
                 alt="Krishidhi Logo" 
+                width={28}
+                height={28}
                 style={{ height: '28px', width: 'auto', objectFit: 'contain' }} 
               />
               <span style={{ fontSize: '1rem', fontWeight: 900, color: 'var(--text-primary)' }}>
