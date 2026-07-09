@@ -1,0 +1,110 @@
+import React from 'react';
+import HologramScanner from '@/components/HologramScanner';
+
+export default function AboutPage() {
+  return (
+    <div className="wrapper" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
+      {/* Header */}
+      <div className="center-header reveal-fade" style={{ maxWidth: '800px', margin: '0 auto 64px' }}>
+        <span className="sup-title">Company Profile</span>
+        <h1 style={{ fontSize: '3rem', marginBottom: '24px' }}>Krishidhi Fgen Private Limited</h1>
+        <p className="hero-subtext">
+          Registered MSME agritech enterprise driving agricultural AI models and visual diagnostics systems.
+        </p>
+      </div>
+
+      {/* Hologram Scanner Visual Section */}
+      <section className="about-section reveal-fade" id="about" style={{ marginBottom: '80px' }}>
+        <HologramScanner />
+      </section>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '48px', maxWidth: '1000px', margin: '0 auto' }}>
+        
+        {/* Core Narrative / Company Story */}
+        <div className="editor-sidebar tilt-card reveal-fade" style={{ padding: '40px' }}>
+          <span className="info-type" style={{ color: 'var(--accent-primary)', letterSpacing: '0.1em' }}>OUR NARRATIVE</span>
+          <h2 style={{ fontSize: '1.75rem', marginTop: '8px', marginBottom: '20px' }}>The Product Came First</h2>
+          <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-secondary)' }}>
+            Krishi Vigyan AI started as one founder's product — built, shipped, and put in front of real farmers before there was ever a company behind it. Krishidhi Fgen Private Limited was incorporated in June 2026 to formalize that work and build beyond it: not just one product, but a company dedicated to software and AI for Indian agriculture.
+          </p>
+        </div>
+
+        {/* Company Values */}
+        <div className="editor-sidebar tilt-card reveal-fade" style={{ padding: '40px' }}>
+          <span className="info-type" style={{ color: 'var(--accent-secondary)', letterSpacing: '0.1em' }}>VALUES BLOCK</span>
+          <h2 style={{ fontSize: '1.75rem', marginTop: '8px', marginBottom: '24px' }}>Core Beliefs</h2>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+            <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '20px' }}>
+              <strong style={{ display: 'block', color: 'var(--accent-primary)', fontSize: '1rem', marginBottom: '8px' }}>
+                Farmer-First, Always
+              </strong>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                If a decision benefits the company at the farmer's expense, we don't make it. Period.
+              </p>
+            </div>
+
+            <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '20px' }}>
+              <strong style={{ display: 'block', color: 'var(--accent-secondary)', fontSize: '1rem', marginBottom: '8px' }}>
+                Built for Reality
+              </strong>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                Low bandwidth, regional language, low digital literacy — designed for actual field conditions, not ideal-case demos.
+              </p>
+            </div>
+
+            <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '20px' }}>
+              <strong style={{ display: 'block', color: 'var(--accent-purple)', fontSize: '1rem', marginBottom: '8px' }}>
+                Software and AI Only
+              </strong>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                We stay in our lane — no hardware, no equipment sales, no scope creep away from what we're actually good at.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Founder Spotlights */}
+        <div className="editor-sidebar tilt-card reveal-fade" style={{ padding: '40px' }}>
+          <span className="info-type" style={{ color: 'var(--accent-purple)', letterSpacing: '0.1em' }}>FOUNDERSHIP</span>
+          <h2 style={{ fontSize: '1.75rem', marginTop: '8px', marginBottom: '20px' }}>Deep Patel, Founder</h2>
+          <p style={{ fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-secondary)' }}>
+            Deep Patel combines hands-on experience building AI systems with a personal connection to farming life in Gujarat. Krishi Vigyan AI was built and shipped solo before Krishidhi Fgen existed as a company; the entity was formed to carry that work further.
+          </p>
+        </div>
+
+        {/* Legal Registry Credentials */}
+        <div className="editor-sidebar tilt-card reveal-fade" style={{ padding: '40px' }}>
+          <span className="info-type" style={{ color: 'var(--text-muted)', letterSpacing: '0.1em' }}>REGISTRY DATA</span>
+          <h2 style={{ fontSize: '1.75rem', marginTop: '8px', marginBottom: '20px' }}>Legal Identity</h2>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+              <span>Legal Name</span>
+              <strong style={{ color: 'var(--text-primary)' }}>Krishidhi Fgen Private Limited</strong>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+              <span>Company Type</span>
+              <strong style={{ color: 'var(--text-primary)' }}>Private Limited Company (Limited by Shares)</strong>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+              <span>Incorporation Date</span>
+              <strong style={{ color: 'var(--text-primary)' }}>16 June 2026 (Under the Companies Act, 2013)</strong>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+              <span>CIN</span>
+              <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>U62099GJ2026PTC179174</strong>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '4px' }}>
+              <span>Registered Office</span>
+              <strong style={{ color: 'var(--text-primary)', textAlign: 'right', maxWidth: '340px' }}>
+                House No 768, Kanchan Faliya, Dharasana, Valsad, Gujarat - 396375
+              </strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
