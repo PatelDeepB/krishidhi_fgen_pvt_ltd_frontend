@@ -157,17 +157,11 @@ export default function Home() {
         <div className="wrapper">
           <div className="center-header">
             <span className="sup-title">Explore Core Systems</span>
-            <h2>Developer & Diagnostics Consoles</h2>
-            <p>Access our diagnostic tools and structural system specifications.</p>
+            <h2>Systems & Corporate Portals</h2>
+            <p>Access our structural system specifications and company insights.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginTop: '48px' }}>
-            <a href="/console" className="editor-sidebar tilt-card" style={{ padding: '28px', textDecoration: 'none', transition: 'transform 0.2s' }}>
-              <span className="info-type">DEV CONSOLE</span>
-              <h3 style={{ margin: '8px 0' }}>Diagnostics Console</h3>
-              <p className="muted-text" style={{ fontSize: '0.8rem', lineHeight: '1.5' }}>Simulate crop parameter inputs, test connections, and run diagnostics compilation graphs.</p>
-            </a>
-
             <a href="/pillars" className="editor-sidebar tilt-card" style={{ padding: '28px', textDecoration: 'none', transition: 'transform 0.2s' }}>
               <span className="info-type">INFRASTRUCTURE</span>
               <h3 style={{ margin: '8px 0' }}>Pillars & Architecture</h3>
@@ -195,7 +189,7 @@ export default function Home() {
               <h2>Accelerate Agricultural Intelligence</h2>
               <p>Connect your diagnostic streams to the Krishidhi Fgen Cognitive Engine. Standardize yield diagnostics.</p>
               <div className="cta-btns" style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-                <a href="/console" className="btn btn-primary">Launch Diagnostics Console</a>
+                <a href="https://krishivigyanai.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Launch Console</a>
                 <a href="/about" className="btn btn-secondary">About the Company</a>
               </div>
             </div>
