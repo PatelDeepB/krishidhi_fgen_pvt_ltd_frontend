@@ -632,11 +632,25 @@ body.light-theme .editor-sidebar {
   box-shadow: var(--shadow-sm);
   background: #03060c;
   position: relative;
-  overflow: hidden;
 }
 
 body.light-theme .canvas-scroll-wrapper {
   background: #f8fafc;
+}
+
+.canvas-scroll-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.canvas-scroll-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 10px;
+}
+.canvas-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.15);
+  border-radius: 10px;
+}
+.canvas-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.3);
 }
 
 .editor-canvas {
@@ -1198,9 +1212,11 @@ body.light-theme .vector-node {
   left: 50%;
   transform: translate(-50%, -50%);
   border-color: var(--accent-primary);
-  background: rgba(16, 185, 129, 0.1);
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
   animation: pulse-ring 2.5s infinite;
+  color: #ffffff !important;
+  text-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
 }
 
 .match-node-1 { top: 20%; left: 15%; }
@@ -1465,10 +1481,10 @@ body.light-theme .ledger-block {
 
 .hologram-mesh-svg {
   position: absolute;
-  top: 25px;
+  /* top: 25px;
   left: 25px;
   right: 25px;
-  bottom: 25px;
+  bottom: 25px; */
   z-index: 2;
   pointer-events: none;
 }

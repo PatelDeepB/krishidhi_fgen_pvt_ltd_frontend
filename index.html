@@ -81,15 +81,15 @@
     </section>
 
     <!-- Interactive Node Editor Section -->
-    <section class="sandbox-section" id="sandbox">
+    <section class="sandbox-section reveal-fade" id="sandbox">
       <div class="wrapper">
-        <div class="center-header reveal-fade">
+        <div class="center-header">
           <span class="sup-title">Interactive Workspace</span>
           <h2>Cognitive Flow Orchestrator</h2>
           <p>Adjust visual parameters and node connectors, then hit "Run Diagnostics Pipeline" to compile real-time diagnostic outputs.</p>
         </div>
 
-        <div class="node-editor-workspace reveal-fade">
+        <div class="node-editor-workspace">
           
           <!-- Workspace Sidebar / Property Panel -->
           <div class="editor-sidebar tilt-card">
@@ -150,16 +150,16 @@
                 <!-- SVG Connector Wires -->
                 <svg class="canvas-svg-overlay" id="svg-connections">
                   <!-- Base inactive lines -->
-                  <path class="connection-line svg-trace-active" d="M 230,105 C 290,105 280,225 340,225" />
-                  <path class="connection-line svg-trace-active" d="M 230,365 C 290,365 280,225 340,225" />
-                  <path class="connection-line svg-trace-active" d="M 520,225 C 580,225 580,105 640,105" />
-                  <path class="connection-line svg-trace-active" d="M 520,225 C 580,225 580,365 640,365" />
+                  <path class="connection-line svg-trace-active" id="base-line-1" d="" />
+                  <path class="connection-line svg-trace-active" id="base-line-2" d="" />
+                  <path class="connection-line svg-trace-active" id="base-line-3" d="" />
+                  <path class="connection-line svg-trace-active" id="base-line-4" d="" />
 
                   <!-- Active flowing glow highlights -->
-                  <path class="flowing-line" id="flow-line-1" d="M 230,105 C 290,105 280,225 340,225" stroke="var(--accent-primary)" />
-                  <path class="flowing-line" id="flow-line-2" d="M 230,365 C 290,365 280,225 340,225" stroke="var(--accent-primary)" />
-                  <path class="flowing-line" id="flow-line-3" d="M 520,225 C 580,225 580,105 640,105" stroke="var(--accent-secondary)" />
-                  <path class="flowing-line" id="flow-line-4" d="M 520,225 C 580,225 580,365 640,365" stroke="var(--accent-secondary)" />
+                  <path class="flowing-line" id="flow-line-1" d="" stroke="var(--accent-primary)" />
+                  <path class="flowing-line" id="flow-line-2" d="" stroke="var(--accent-primary)" />
+                  <path class="flowing-line" id="flow-line-3" d="" stroke="var(--accent-secondary)" />
+                  <path class="flowing-line" id="flow-line-4" d="" stroke="var(--accent-secondary)" />
                 </svg>
 
                 <!-- ================= NODE A: CAMERA INPUT ================= -->
@@ -285,15 +285,15 @@
     </section>
 
     <!-- Platform Specifications (Interactive Pipeline Visualizer) -->
-    <section class="spec-section" id="spec">
+    <section class="spec-section reveal-fade" id="spec">
       <div class="wrapper">
-        <div class="center-header reveal-fade">
+        <div class="center-header">
           <span class="sup-title">Platform Architecture</span>
           <h2>Decentralized Agronomy Pipeline</h2>
           <p>Our software structures bridge complex multimodal telemetry with local agricultural networks seamlessly.</p>
         </div>
 
-        <div class="spec-interactive-layout reveal-fade">
+        <div class="spec-interactive-layout">
           <!-- Interactive Selector Tabs (Left) -->
           <div class="spec-selectors">
             <button class="spec-selector tilt-card active-spec" onclick="switchSpecTab(1)">
@@ -399,9 +399,9 @@
     </section>
 
     <!-- Spatial Info Panel -->
-    <section class="about-section" id="about">
+    <section class="about-section reveal-fade" id="about">
       <div class="wrapper">
-        <div class="about-layout reveal-fade">
+        <div class="about-layout">
           <div class="about-content">
             <span class="sup-title">Telemetry Twin</span>
             <h2>Computational Botanical Engine</h2>
@@ -851,6 +851,7 @@
       const matchedShops = baseShops + radiusFactor;
       storeOutput.textContent = `Found ${matchedShops} verified input shops within Anand.`;
       metricsShops.textContent = `${matchedShops} Stores`;
+      updateConnections();
     }
 
     // Run Pipeline click event
@@ -1008,6 +1009,54 @@
         scanBtn.textContent = 'Execute Crop Scan';
       }, 2000);
     }
+
+    // Dynamic Node Connection Routing (Fixes line alignment UI bugs)
+    function updateConnections() {
+      const canvas = document.getElementById('canvas');
+      if (!canvas) return;
+      const canvasRect = canvas.getBoundingClientRect();
+      
+      const connections = [
+        { from: 'node-camera', to: 'node-rag', flowId: 'flow-line-1', baseId: 'base-line-1', inPortIndex: 0 },
+        { from: 'node-soil', to: 'node-rag', flowId: 'flow-line-2', baseId: 'base-line-2', inPortIndex: 1 },
+        { from: 'node-rag', to: 'node-store', flowId: 'flow-line-3', baseId: 'base-line-3', inPortIndex: 0 },
+        { from: 'node-rag', to: 'node-whatsapp', flowId: 'flow-line-4', baseId: 'base-line-4', inPortIndex: 0 }
+      ];
+      
+      connections.forEach(conn => {
+        const fromEl = document.getElementById(conn.from);
+        const toEl = document.getElementById(conn.to);
+        if (!fromEl || !toEl) return;
+        
+        const outPort = fromEl.querySelector('.node-port-out');
+        const inPorts = toEl.querySelectorAll('.node-port-in');
+        const inPort = inPorts[conn.inPortIndex || 0];
+        if (!outPort || !inPort) return;
+        
+        const outRect = outPort.getBoundingClientRect();
+        const inRect = inPort.getBoundingClientRect();
+        
+        const x1 = outRect.left - canvasRect.left + outRect.width / 2;
+        const y1 = outRect.top - canvasRect.top + outRect.height / 2;
+        const x2 = inRect.left - canvasRect.left + inRect.width / 2;
+        const y2 = inRect.top - canvasRect.top + inRect.height / 2;
+        
+        const controlOffset = Math.abs(x2 - x1) * 0.5;
+        const pathData = `M ${x1},${y1} C ${x1 + controlOffset},${y1} ${x2 - controlOffset},${y2} ${x2},${y2}`;
+        
+        const baseLine = document.getElementById(conn.baseId);
+        const flowLine = document.getElementById(conn.flowId);
+        
+        if (baseLine) baseLine.setAttribute('d', pathData);
+        if (flowLine) flowLine.setAttribute('d', pathData);
+      });
+    }
+
+    // Call updates on loads, resizes and dynamic content
+    window.addEventListener('load', updateConnections);
+    window.addEventListener('resize', updateConnections);
+    // Add brief delay to ensure DOM styles have parsed
+    setTimeout(updateConnections, 100);
 
     recalculateFlowProperties();
   </script>
