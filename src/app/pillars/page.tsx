@@ -1,5 +1,15 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import SpecVisualizer from '@/components/SpecVisualizer';
+
+export const metadata: Metadata = {
+  title: 'Pillars & Systems',
+  description: 'Review the technical pillars and decentralization architecture connecting agronomic models, vector search indexes, and trust ledgers.',
+  keywords: ['system pillars', 'agrotech architecture', 'decentralized agriculture ledger', 'agronomic vector indexes'],
+  alternates: {
+    canonical: '/pillars',
+  },
+};
 
 export default function PillarsPage() {
   return (

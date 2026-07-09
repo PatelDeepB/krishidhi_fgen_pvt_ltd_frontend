@@ -1,8 +1,62 @@
 import React from 'react';
 
 export default function Home() {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    'name': 'Krishidhi Fgen Private Limited',
+    'alternateName': 'Krishidhi Fgen',
+    'url': 'https://krishidhi.com',
+    'logo': 'https://krishidhi.com/logo_KV_nobg.png',
+    'contactPoint': {
+      '@type': 'ContactPoint',
+      'telephone': '+91-92136-46732',
+      'contactType': 'customer service',
+      'email': 'founder@krishivigyanai.com',
+      'areaServed': 'IN',
+      'availableLanguage': ['en', 'gu', 'hi']
+    },
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': 'House No 768, Kanchan Faliya, Dharasana',
+      'addressLocality': 'Valsad',
+      'addressRegion': 'Gujarat',
+      'postalCode': '396375',
+      'addressCountry': 'IN'
+    },
+    'founder': {
+      '@type': 'Person',
+      'name': 'Deep Patel'
+    },
+    'foundingDate': '2026-06-16'
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    'name': 'Krishidhi Fgen',
+    'url': 'https://krishidhi.com',
+    'potentialAction': {
+      '@type': 'SearchAction',
+      'target': {
+        '@type': 'EntryPoint',
+        'urlTemplate': 'https://krishidhi.com/products?q={search_term_string}'
+      },
+      'query-input': 'required name=search_term_string'
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-layout-minimal">

@@ -1,8 +1,53 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import HologramScanner from '@/components/HologramScanner';
 
+export const metadata: Metadata = {
+  title: 'About Us',
+  description: 'Learn about the mission, beliefs, legal registration parameters, and leadership of Krishidhi Fgen Private Limited, a registered MSME agritech enterprise driving agricultural AI systems in Valsad, Gujarat.',
+  keywords: ['About Krishidhi Fgen', 'Krishidhi team', 'Deep Patel founder', 'agritech company Valsad', 'Krishidhi Fgen registry CIN'],
+  alternates: {
+    canonical: '/about',
+  },
+};
+
 export default function AboutPage() {
+  const aboutSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    'name': 'About Us | Krishidhi Fgen',
+    'description': 'Learn about the mission, values, and legal credentials of Krishidhi Fgen Private Limited.',
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'Krishidhi Fgen Private Limited',
+      'url': 'https://krishidhi.com'
+    },
+    'mainEntity': {
+      '@type': 'Organization',
+      'name': 'Krishidhi Fgen Private Limited',
+      'foundingDate': '2026-06-16',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'House No 768, Kanchan Faliya, Dharasana',
+        'addressLocality': 'Valsad',
+        'addressRegion': 'Gujarat',
+        'postalCode': '396375',
+        'addressCountry': 'IN'
+      },
+      'founder': {
+        '@type': 'Person',
+        'name': 'Deep Patel'
+      }
+    }
+  };
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
+
     <div className="wrapper" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
       {/* Header */}
       <div className="center-header reveal-fade" style={{ maxWidth: '800px', margin: '0 auto 64px' }}>
@@ -106,5 +151,6 @@ export default function AboutPage() {
 
       </div>
     </div>
+    </>
   );
 }
