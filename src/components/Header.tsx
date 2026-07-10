@@ -37,7 +37,7 @@ export default function Header() {
         <div className="nav-container">
           <a href="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
             <img 
-              src="/logo_KV_nobg.png" 
+              src="/logo.svg" 
               alt="Krishidhi Logo" 
               width={32}
               height={32}

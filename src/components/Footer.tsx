@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="footer-brand">
             <a href="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', marginBottom: '16px' }}>
               <img 
-                src="/logo_KV_nobg.png" 
+                src="/logo.svg" 
                 alt="Krishidhi Logo" 
                 width={28}
                 height={28}
