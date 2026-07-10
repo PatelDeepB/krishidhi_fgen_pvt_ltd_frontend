@@ -50,7 +50,7 @@ export default function ProductsPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '48px', maxWidth: '900px', margin: '0 auto' }}>
         
         {/* Flagship Product: krishivigyanai.com */}
-        <section id="krishivigyan" className="editor-sidebar tilt-card reveal-fade" style={{ padding: '40px', border: '1px solid var(--accent-primary)' }}>
+        <section id="krishivigyan" className="reveal-fade" style={{ padding: '40px', background: 'var(--bg-secondary)', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '24px' }}>
             <div>
               <span className="info-type" style={{ color: 'var(--accent-primary)', letterSpacing: '0.1em' }}>FLAGSHIP PRODUCT</span>
@@ -62,7 +62,7 @@ export default function ProductsPage() {
           </div>
           
           <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '24px' }}>
-            Krishi Vigyan AI is our first product — a free AI assistant that gives Indian farmers expert crop advice, disease detection, and weather insights, delivered over WhatsApp. Live today, built for farmers who need answers in their own language, on the device they already have.
+            Krishi Vigyan AI is our first product - a free AI assistant that gives Indian farmers expert crop advice, disease detection, and weather insights, delivered over WhatsApp. Live today, built for farmers who need answers in their own language, on the device they already have.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>

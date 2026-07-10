@@ -56,11 +56,11 @@ export default function CareersPage() {
               </li>
               <li style={{ display: 'flex', gap: '8px' }}>
                 <span style={{ color: 'var(--accent-primary)' }}>✓</span>
-                <strong>Built for reality, not a demo:</strong> Low bandwidth, regional language, low digital literacy — designed for actual field conditions.
+                <strong>Built for reality, not a demo:</strong> Low bandwidth, regional language, low digital literacy - designed for actual field conditions.
               </li>
               <li style={{ display: 'flex', gap: '8px' }}>
                 <span style={{ color: 'var(--accent-primary)' }}>✓</span>
-                <strong>Software and AI only:</strong> We stay in our lane — no hardware, no equipment sales, no scope creep.
+                <strong>Software and AI only:</strong> We stay in our lane - no hardware, no equipment sales, no scope creep.
               </li>
             </ul>
           </div>
