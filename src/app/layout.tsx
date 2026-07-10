@@ -29,6 +29,12 @@ export const metadata: Metadata = {
     default: 'Krishidhi Fgen Private Limited | Autonomous Agronomy & F2C Marketplace',
     template: '%s | Krishidhi Fgen',
   },
+  icons: {
+    icon: [
+      { url: '/logo_KV.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: '/logo_KV.png',
+  },
   description: 'Designing agricultural AI models and visual cognitive flow grids to power krishivigyanai.com, connecting farmers directly to consumers.',
   keywords: [
     'agritech',
