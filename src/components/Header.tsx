@@ -70,7 +70,7 @@ export default function Header() {
         </div>
       </header>
 
-      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'menu-open' : ''}`}>
+      <div className={`mobile-menu-overlay md-hidden ${isMobileMenuOpen ? 'menu-open' : ''}`}>
         <a href="/about" className="mobile-nav-link" onClick={toggleMobileMenu}>About Us</a>
         <a href="/products" className="mobile-nav-link" onClick={toggleMobileMenu}>Our Products</a>
         <a href="/pillars" className="mobile-nav-link" onClick={toggleMobileMenu}>Pillars & Systems</a>
