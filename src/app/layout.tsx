@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/logo_KV.png', type: 'image/png', sizes: '192x192' },
+      { url: '/logo.svg', type: 'image/svg+xml', sizes: 'any' },
     ],
-    apple: '/logo_KV.png',
+    apple: '/logo.svg',
   },
   description: 'Designing agricultural AI models and visual cognitive flow grids to power krishivigyanai.com, connecting farmers directly to consumers.',
   keywords: [

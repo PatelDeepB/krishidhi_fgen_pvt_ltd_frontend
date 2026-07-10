@@ -7,7 +7,7 @@ export default function Home() {
     'name': 'Krishidhi Fgen Private Limited',
     'alternateName': 'Krishidhi Fgen',
     'url': 'https://krishidhi.com',
-    'logo': 'https://krishidhi.com/logo_KV_nobg.png',
+    'logo': 'https://krishidhi.com/logo.svg',
     'contactPoint': {
       '@type': 'ContactPoint',
       'telephone': '+91-92136-46732',
