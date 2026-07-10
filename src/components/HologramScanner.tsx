@@ -3,9 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function HologramScanner() {
-  const [accuracy, setAccuracy] = useState(0);
-  const [farms, setFarms] = useState(0);
-  const [nodes, setNodes] = useState(0);
 
   const [isScanning, setIsScanning] = useState(false);
   const [btnText, setBtnText] = useState('Execute Crop Scan');
@@ -60,10 +57,6 @@ export default function HologramScanner() {
     // Scramble status overlay banner text
     runGlitchText('SYNCING BIOTIC INDEX...', setBannerText);
 
-    // Reset and animate stats numbers
-    animateValue(0, 98.4, 1500, setAccuracy);
-    animateValue(0, 12400, 1500, setFarms);
-    animateValue(0, 84, 1500, setNodes);
 
     setTimeout(() => {
       setIsScanning(false);
@@ -76,10 +69,6 @@ export default function HologramScanner() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Trigger the initial numbers counting up
-          animateValue(0, 98.4, 1500, setAccuracy);
-          animateValue(0, 12400, 1500, setFarms);
-          animateValue(0, 84, 1500, setNodes);
           observer.disconnect();
         }
       });
@@ -99,20 +88,6 @@ export default function HologramScanner() {
           We design premium agronomic software interfaces that process crop diagnostics data (leaf anomalies, soil metrics, local parameters) into actionable alerts. By combining LLM-RAG pipelines with human trust systems, we verify crop diagnostics at their origin.
         </p>
         
-        <div className="about-stats-row" id="stats-section">
-          <div className="stat-box">
-            <span className="stat-num" id="stat-accuracy">{accuracy.toFixed(1)}%</span>
-            <span className="stat-label">Model Accuracy</span>
-          </div>
-          <div className="stat-box">
-            <span className="stat-num" id="stat-farms">{Math.floor(farms).toLocaleString()}</span>
-            <span className="stat-label">Verified Farms</span>
-          </div>
-          <div className="stat-box">
-            <span className="stat-num" id="stat-nodes">{Math.floor(nodes)}</span>
-            <span className="stat-label">Regional Nodes</span>
-          </div>
-        </div>
 
         <button 
           className="btn btn-secondary" 

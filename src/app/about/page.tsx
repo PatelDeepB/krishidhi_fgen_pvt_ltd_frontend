@@ -70,7 +70,7 @@ export default function AboutPage() {
           <span className="info-type" style={{ color: 'var(--accent-primary)', letterSpacing: '0.1em' }}>OUR NARRATIVE</span>
           <h2 style={{ fontSize: '1.75rem', marginTop: '8px', marginBottom: '20px' }}>The Product Came First</h2>
           <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-secondary)' }}>
-            Krishi Vigyan AI started as one founder's product — built, shipped, and put in front of real farmers before there was ever a company behind it. Krishidhi Fgen Private Limited was incorporated in June 2026 to formalize that work and build beyond it: not just one product, but a company dedicated to software and AI for Indian agriculture.
+            Krishi Vigyan AI started as one founder's product - built, shipped, and put in front of real farmers before there was ever a company behind it. Krishidhi Fgen Private Limited was incorporated in June 2026 to formalize that work and build beyond it: not just one product, but a company dedicated to software and AI for Indian agriculture.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 Built for Reality
               </strong>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                Low bandwidth, regional language, low digital literacy — designed for actual field conditions, not ideal-case demos.
+                Low bandwidth, regional language, low digital literacy - designed for actual field conditions, not ideal-case demos.
               </p>
             </div>
 
@@ -103,7 +103,7 @@ export default function AboutPage() {
                 Software and AI Only
               </strong>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                We stay in our lane — no hardware, no equipment sales, no scope creep away from what we're actually good at.
+                We stay in our lane - no hardware, no equipment sales, no scope creep away from what we're actually good at.
               </p>
             </div>
           </div>
@@ -118,36 +118,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Legal Registry Credentials */}
-        <div className="editor-sidebar tilt-card reveal-fade" style={{ padding: '40px' }}>
-          <span className="info-type" style={{ color: 'var(--text-muted)', letterSpacing: '0.1em' }}>REGISTRY DATA</span>
-          <h2 style={{ fontSize: '1.75rem', marginTop: '8px', marginBottom: '20px' }}>Legal Identity</h2>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
-              <span>Legal Name</span>
-              <strong style={{ color: 'var(--text-primary)' }}>Krishidhi Fgen Private Limited</strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
-              <span>Company Type</span>
-              <strong style={{ color: 'var(--text-primary)' }}>Private Limited Company (Limited by Shares)</strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
-              <span>Incorporation Date</span>
-              <strong style={{ color: 'var(--text-primary)' }}>16 June 2026 (Under the Companies Act, 2013)</strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
-              <span>CIN</span>
-              <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>U62099GJ2026PTC179174</strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '4px' }}>
-              <span>Registered Office</span>
-              <strong style={{ color: 'var(--text-primary)', textAlign: 'right', maxWidth: '340px' }}>
-                House No 768, Kanchan Faliya, Dharasana, Valsad, Gujarat - 396375
-              </strong>
-            </div>
-          </div>
-        </div>
+
 
       </div>
     </div>

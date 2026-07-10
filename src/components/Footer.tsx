@@ -43,9 +43,7 @@ export default function Footer() {
 
         <div className="footer-corporate-info" style={{ marginTop: '32px', paddingTop: '24px', borderTop: '1px solid var(--border-color)', fontSize: '0.72rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
           <p style={{ margin: 0 }}><strong>Krishidhi Fgen Private Limited</strong></p>
-          <p style={{ margin: 0 }}>CIN: U62099GJ2026PTC179174</p>
-          <p style={{ margin: 0 }}>Registered Office: House No 768, Kanchan Faliya, Dharasana, Valsad, Gujarat - 396375</p>
-          <p style={{ margin: 0 }}>Email: founder@krishivigyanai.com | Contact: +91 92136 46732</p>
+          <p style={{ margin: 0 }}>Email: founder@krishivigyanai.com</p>
         </div>
 
         <div className="footer-bottom">

@@ -69,7 +69,7 @@ export default function Home() {
             <span className="reveal-line"><span className="gradient-headline">Synthesized by AI.</span></span>
           </h1>
           <p className="hero-subtext reveal-delay-2" style={{ maxWidth: '800px', margin: '0 auto' }}>
-            To build the software and AI infrastructure that Indian agriculture runs on — starting with farmer advisory, and expanding into every layer where intelligence can replace guesswork.
+            To build the software and AI infrastructure that Indian agriculture runs on - starting with farmer advisory, and expanding into every layer where intelligence can replace guesswork.
           </p>
         </div>
       </section>
@@ -81,10 +81,10 @@ export default function Home() {
             <span className="info-type" style={{ color: 'var(--accent-primary)', letterSpacing: '0.1em' }}>VISION & MISSION</span>
             <h2 style={{ fontSize: '2.25rem', marginTop: '10px', marginBottom: '20px' }}>Built for Reality</h2>
             <p style={{ fontSize: '1rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '20px' }}>
-              We build practical, accessible technology for Indian farmers and the businesses around them — software and AI only, no hardware, no assumptions about what device or data plan someone has.
+              We build practical, accessible technology for Indian farmers and the businesses around them - software and AI only, no hardware, no assumptions about what device or data plan someone has.
             </p>
-            <div style={{ background: 'rgba(239, 68, 68, 0.04)', border: '1px solid rgba(239, 68, 68, 0.15)', borderRadius: '12px', padding: '16px', fontSize: '0.85rem', color: '#ef4444', lineHeight: '1.6' }}>
-              <strong>What we are not:</strong> We don't build or sell farm equipment, sensors, or hardware. Everything Krishidhi Fgen builds is software and AI — reachable the moment someone sends a message.
+            <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '16px', fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+              <strong>What we are not:</strong> We don't build or sell farm equipment, sensors, or hardware. Everything Krishidhi Fgen builds is software and AI - reachable the moment someone sends a message.
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function Home() {
               <span className="info-type" style={{ color: 'var(--accent-primary)' }}>01 // SOFTWARE</span>
               <h3 style={{ margin: '8px 0 12px', fontSize: '1.4rem' }}>Multilingual by Default</h3>
               <p className="muted-text" style={{ fontSize: '0.88rem', lineHeight: '1.6' }}>
-                We build for the country we're building for — low-bandwidth, WhatsApp-first, multilingual by default. Not adapted from a Western template.
+                We build for the country we're building for - low-bandwidth, WhatsApp-first, multilingual by default. Not adapted from a Western template.
               </p>
             </div>
 
@@ -137,7 +137,7 @@ export default function Home() {
             <span className="info-type" style={{ color: 'var(--accent-primary)', letterSpacing: '0.1em' }}>FLAGSHIP PRODUCT</span>
             <h2 style={{ fontSize: '2.25rem', marginTop: '10px', marginBottom: '20px' }}>Krishi Vigyan AI</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '32px' }}>
-              Krishi Vigyan AI is our first product — a free AI assistant that gives Indian farmers expert crop advice, disease detection, and weather insights, delivered over WhatsApp. Live today, built for farmers who need answers in their own language, on the device they already have.
+              Krishi Vigyan AI is our first product - a free AI assistant that gives Indian farmers expert crop advice, disease detection, and weather insights, delivered over WhatsApp. Live today, built for farmers who need answers in their own language, on the device they already have.
             </p>
             
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
