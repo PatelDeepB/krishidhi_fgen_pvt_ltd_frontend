@@ -77,7 +77,7 @@ export default function Home() {
       {/* Vision & Mission Core Focus Card */}
       <section className="spec-section reveal-fade" style={{ paddingTop: '20px', paddingBottom: '40px' }}>
         <div className="wrapper">
-          <div className="editor-sidebar tilt-card" style={{ padding: '40px', maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="editor-sidebar tilt-card" style={{ maxWidth: '1000px', margin: '0 auto' }}>
             <span className="info-type" style={{ color: 'var(--accent-primary)', letterSpacing: '0.1em' }}>VISION & MISSION</span>
             <h2 style={{ fontSize: '2.25rem', marginTop: '10px', marginBottom: '20px' }}>Built for Reality</h2>
             <p style={{ fontSize: '1rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '20px' }}>
@@ -99,7 +99,7 @@ export default function Home() {
             <p>Our solutions are designed specifically for the unique conditions of rural India.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginTop: '48px' }}>
+          <div className="responsive-grid-3">
             {/* Pillar 1 */}
             <div className="editor-sidebar tilt-card" style={{ padding: '32px' }}>
               <span className="info-type" style={{ color: 'var(--accent-primary)' }}>01 // SOFTWARE</span>
@@ -133,7 +133,7 @@ export default function Home() {
       {/* Flagship Product Spotlight */}
       <section className="spec-section reveal-fade" style={{ background: 'rgba(255,255,255,0.01)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', paddingTop: '64px', paddingBottom: '64px' }}>
         <div className="wrapper" style={{ maxWidth: '900px' }}>
-          <div className="editor-sidebar tilt-card" style={{ padding: '40px', border: '1px solid var(--accent-primary)' }}>
+          <div className="editor-sidebar tilt-card" style={{ border: '1px solid var(--accent-primary)' }}>
             <span className="info-type" style={{ color: 'var(--accent-primary)', letterSpacing: '0.1em' }}>FLAGSHIP PRODUCT</span>
             <h2 style={{ fontSize: '2.25rem', marginTop: '10px', marginBottom: '20px' }}>Krishi Vigyan AI</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '32px' }}>
@@ -161,7 +161,7 @@ export default function Home() {
             <p>Access our structural system specifications and company insights.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginTop: '48px' }}>
+          <div className="responsive-grid-2">
             <a href="/pillars" className="editor-sidebar tilt-card" style={{ padding: '28px', textDecoration: 'none', transition: 'transform 0.2s' }}>
               <span className="info-type">INFRASTRUCTURE</span>
               <h3 style={{ margin: '8px 0' }}>Pillars & Architecture</h3>
