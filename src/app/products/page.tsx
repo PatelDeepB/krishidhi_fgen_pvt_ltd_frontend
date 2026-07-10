@@ -47,10 +47,10 @@ export default function ProductsPage() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '48px', maxWidth: '900px', margin: '0 auto' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '48px', maxWidth: '900px', margin: '0 auto' }}>
         
         {/* Flagship Product: krishivigyanai.com */}
-        <section id="krishivigyan" className="reveal-fade" style={{ padding: '40px', background: 'var(--bg-secondary)', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+        <section id="krishivigyan" className="editor-sidebar tilt-card reveal-fade" style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '24px' }}>
             <div>
               <span className="info-type" style={{ color: 'var(--accent-primary)', letterSpacing: '0.1em' }}>FLAGSHIP PRODUCT</span>
